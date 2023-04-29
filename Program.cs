@@ -1,30 +1,29 @@
 using System;
 
-namespace MagicalInheritance
+namespace RoverControlCenter
 {
   class Program
   {
     static void Main(string[] args)
     {
-      Storm sidor = new Storm("wind",true,"Zul'rajas");
-      Storm nargis = new Storm("wind", false,"Lina");
-      Pupil Mez = new Pupil("Mezil-Kree");
-       Storm dor = Mez.CastWindStrom();
-        dor.Announce();   
+      MoonRover lunokhod = new MoonRover("Lunokhod 1", 1970);
+      MoonRover apollo = new MoonRover("Apollo 15", 1971);
+      MarsRover sojourner = new MarsRover("Sojourner", 1997);
+      Satellite sputnik = new Satellite("Sputnik", 1957); 
+  Rover[] r1 = new Rover[]{lunokhod,apollo,sojourner};
+  //DirectAll(r1);
+  
+  IDirectable[] probes = {lunokhod,apollo,sojourner, sputnik };
+  DirectAll(probes);
+  		
+    }
+    public static void DirectAll(IDirectable[] probes){
+          foreach(IDirectable probe in probes){
+            Console.WriteLine(probe.GetInfo());
+            Console.WriteLine(probe.Explore());
+            Console.WriteLine(probe.Collect());
+          }
 
-      Mage Gul = new Mage("Gul’dan");
-      Storm dan = Gul.CastRainStorm();
-      dan.Announce();
-
-      Archmage nei= new Archmage("Nielas Aran");
-      Storm aran = nei.CastRainStorm();
-      aran.Announce();
-
-      Storm aran1 = nei.CastLightningStorm();
-      aran1.Announce();
-
-        //nargis.Announce();   
-        //Console.WriteLine(s1);
     }
   }
 }
