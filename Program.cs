@@ -1,23 +1,19 @@
 using System;
 
-namespace SavingInterface
+namespace DatingProfile
 {
   class Program
   {
     static void Main(string[] args)
     {
-      TodoList tdl = new TodoList();
-      tdl.Add("Invite friends");
-      tdl.Add("Buy decorations");
-      tdl.Add("Party");
-      tdl.Display();
-      tdl.Reset();
-      tdl.Display();
+      Profile sam = new Profile("Sam Drakkila", 30, "New York", " USA", "he/him");
+      string[] h = {"listening to audiobooks and podcasts","playing rec sports like bowling and kickball","writing a speculative fiction novel","reading advice columns"};
+      
+  sam.SetHobbies(h);
+  Console.WriteLine(sam.ViewProfile()) ;  
+   
+  
 
-      PasswordManager pm = new PasswordManager("iluvpie", true);
-      pm.Display();
-      pm.Reset();
-      pm.Display();
     }
   }
 }
